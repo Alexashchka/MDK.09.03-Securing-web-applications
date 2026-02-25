@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Методические рекомендации для практических работ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .objective {
+            background: #e8f4fc;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+        }
+        
+        .steps {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        ol {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .important {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .materials {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Экзамен</h1>
+        
+        <div class="section">
+            <h2>Цели и задачи</h2>
+            <div class="objective">
+                Необходимо реализовать форму оставления заявки, включающую следующие поля: ФИО клиента, почта, номер телефона, текст сообщения, файл. Реализовать сохранение заявок в базу данных.
+                <br>1) Реализовать защиту для формы от XXS инъекций.
+                <br>2) Реализовать защиту для формы от SQL инъекций.
+                <br>3) Реализовать защиту для формы от CSRF инъекций.
+                <br>4) Реализовать ограничение формата загружаемого файла (PDF, DOC, DOCX).
+                <br>5) Создать журнал логирования событий, записывающий какой IP и время взаимодействовал с сайтом, а именно: зашёл на страницу оставления заявки, совершил заявку. 
+                <br>6) При отправке формы, реализовать подтверждение указанной почты, через отправку «подтверждающего письма на почту». На почту приходит письмо с уникальный кодом, который пользователь должен указать перед отправкой формы.
+                <br>7) В форму регистрации добавить reCapture, защищающую от спама.
+
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Данные для использования</h2>
+            <div class="steps">
+                SMTP-сервер: smtp.yandex.ru
+                <br>Порт: 587 (TLS) или 465 (SSL)
+                <br>Логин: landaxer@yandex.ru
+                <br>Пароль: ********
+                <br>
+                <br>Почта для тестирования: <a href="https://mail.tm/ru/">тык</a>
+                <br>reCapture: <a href="https://developers.google.com/recaptcha?hl=ru" target="_blank">тык</a>.
+                <br>Библиотека для reCapture: <a href="https://drive.google.com/file/d/1KdcxQwcaHSIl7JjCnC6oj_qXv8cVAsAY/view?usp=drive_link" target="_blank">тык</a>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="important">
+                <h2>⚠️ Критерии оценки</h2>
+                <table border="1" style="width: 100%;">
+                    <tr>
+                        <td style="text-align: center; background-color: white;">Критерий</td>
+                        <td style="text-align: center; background-color: white;">Балл</td>
+                    </tr>
+                    <tr>
+                        <td>Разработаная форма заявки, содержит поля ФИО, почта, номер телефона, текст сообщения, файл <br><i>(- 1 балл за каждое отсутствующее поле)</i></td>
+                        <td style="text-align: center;">5</td>
+                    </tr>
+                    <tr>
+                        <td>Данные отправленной заявки добавляются в базу данных <br><i>(- 1 балл за каждое отсутствующее поле)</i></td>
+                        <td style="text-align: center;">5</td>
+                    </tr>
+                    <tr>
+                        <td>Реализована защита от XXS инъекций</td>
+                        <td style="text-align: center;">5</td>
+                    </tr>
+                    <tr>
+                        <td>Реализована защита от SQL инъекций</td>
+                        <td style="text-align: center;">5</td>
+                    </tr>
+                    <tr>
+                        <td>Реализована защита от CSRF инъекций</td>
+                        <td style="text-align: center;">5</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Создан журнал логирования событий. Журнал логирования записывает следующие действия: оставление заявки, вход на страницу
+                        </td>
+                        <td style="text-align: center;">5</td>
+                    </tr>
+                    <tr>
+                        <td>Реализовано ограничение формата загружаемого файла</td>
+                        <td style="text-align: center;">5</td>
+                    </tr>
+                    <tr>
+                        <td>Реализовано подтверждение почты</td>
+                        <td style="text-align: center;">10</td>
+                    </tr>
+                    <tr>
+                        <td>Подключена reCapture</td>
+                        <td style="text-align: center;">5</td>
+                    </tr>
+                    <tr>
+                        <td>Итого</td>
+                        <td style="text-align: center;">50</td>
+                    </tr>
+                </table>
+
+                <br>Разбаловка:
+                <br>Баллы полученные за теоретический тест + балы полученные за практическое задание.
+                <br>95-100 баллов оценка - <b>отлично</b>
+                <br>85-94 баллов оценка - <b>хорошо</b>
+                <br>70-84 баллов оценка - <b>удовлетворительно</b>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
